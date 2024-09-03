@@ -1,0 +1,458 @@
+{
+	"info": {
+		"_postman_id": "ced7e215-5698-4b84-b37c-b0ce5a3112e4",
+		"name": "pppics-openapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38070074"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "门店列表",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var bodyStr = pm.request.body.raw;",
+									"if(bodyStr == undefined){",
+									"    bodyStr = '';",
+									"}",
+									"var method = pm.request.method;",
+									"var path = pm.request.url.getPathWithQuery();",
+									"var ts = new Date().getTime();",
+									"var sign = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(ts + method + path + bodyStr, postman.getEnvironmentVariable(\"PPPICS-SECRET-KEY\")));",
+									"console.log(bodyStr);",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-TS',",
+									"    value: ts",
+									"});",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-ACCESS-KEY',",
+									"    value: postman.getEnvironmentVariable(\"PPPICS-ACCESS-KEY\")",
+									"});",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-SIGN',",
+									"    value: sign",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"merchantId\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PppicsHostPort}}/v1/store/list",
+							"host": [
+								"{{PppicsHostPort}}"
+							],
+							"path": [
+								"v1",
+								"store",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "机器列表",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var bodyStr = pm.request.body.raw;",
+									"if(bodyStr == undefined){",
+									"    bodyStr = '';",
+									"}",
+									"var method = pm.request.method;",
+									"var path = pm.request.url.getPathWithQuery();",
+									"var ts = new Date().getTime();",
+									"var sign = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(ts + method + path + bodyStr, postman.getEnvironmentVariable(\"PPPICS-SECRET-KEY\")));",
+									"console.log(bodyStr);",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-TS',",
+									"    value: ts",
+									"});",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-ACCESS-KEY',",
+									"    value: postman.getEnvironmentVariable(\"PPPICS-ACCESS-KEY\")",
+									"});",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-SIGN',",
+									"    value: sign",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"merchantId\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PppicsHostPort}}/v1/machine/list",
+							"host": [
+								"{{PppicsHostPort}}"
+							],
+							"path": [
+								"v1",
+								"machine",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "套系列表",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var bodyStr = pm.request.body.raw;",
+									"if(bodyStr == undefined){",
+									"    bodyStr = '';",
+									"}",
+									"var method = pm.request.method;",
+									"var path = pm.request.url.getPathWithQuery();",
+									"var ts = new Date().getTime();",
+									"var sign = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(ts + method + path + bodyStr, postman.getEnvironmentVariable(\"PPPICS-SECRET-KEY\")));",
+									"console.log(bodyStr);",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-TS',",
+									"    value: ts",
+									"});",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-ACCESS-KEY',",
+									"    value: postman.getEnvironmentVariable(\"PPPICS-ACCESS-KEY\")",
+									"});",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-SIGN',",
+									"    value: sign",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"machineCode\": \"3B2132EF8BEA3626BB36D650997E3FA5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PppicsHostPort}}/v1/theme/list",
+							"host": [
+								"{{PppicsHostPort}}"
+							],
+							"path": [
+								"v1",
+								"theme",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "商品列表",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var bodyStr = pm.request.body.raw;",
+									"if(bodyStr == undefined){",
+									"    bodyStr = '';",
+									"}",
+									"var method = pm.request.method;",
+									"var path = pm.request.url.getPathWithQuery();",
+									"var ts = new Date().getTime();",
+									"var sign = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(ts + method + path + bodyStr, postman.getEnvironmentVariable(\"PPPICS-SECRET-KEY\")));",
+									"console.log(bodyStr);",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-TS',",
+									"    value: ts",
+									"});",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-ACCESS-KEY',",
+									"    value: postman.getEnvironmentVariable(\"PPPICS-ACCESS-KEY\")",
+									"});",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-SIGN',",
+									"    value: sign",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"themeId\": \"1\",\n    \"machineCode\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PppicsHostPort}}/v1/product/list",
+							"host": [
+								"{{PppicsHostPort}}"
+							],
+							"path": [
+								"v1",
+								"product",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "订单列表",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var bodyStr = pm.request.body.raw;",
+									"if(bodyStr == undefined){",
+									"    bodyStr = '';",
+									"}",
+									"var method = pm.request.method;",
+									"var path = pm.request.url.getPathWithQuery();",
+									"var ts = new Date().getTime();",
+									"var sign = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(ts + method + path + bodyStr, postman.getEnvironmentVariable(\"PPPICS-SECRET-KEY\")));",
+									"console.log(bodyStr);",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-TS',",
+									"    value: ts",
+									"});",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-ACCESS-KEY',",
+									"    value: postman.getEnvironmentVariable(\"PPPICS-ACCESS-KEY\")",
+									"});",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-SIGN',",
+									"    value: sign",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"merchantId\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PppicsHostPort}}/v1/order/list",
+							"host": [
+								"{{PppicsHostPort}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "退款订单列表",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var bodyStr = pm.request.body.raw;",
+									"if(bodyStr == undefined){",
+									"    bodyStr = '';",
+									"}",
+									"var method = pm.request.method;",
+									"var path = pm.request.url.getPathWithQuery();",
+									"var ts = new Date().getTime();",
+									"var sign = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(ts + method + path + bodyStr, postman.getEnvironmentVariable(\"PPPICS-SECRET-KEY\")));",
+									"console.log(bodyStr);",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-TS',",
+									"    value: ts",
+									"});",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-ACCESS-KEY',",
+									"    value: postman.getEnvironmentVariable(\"PPPICS-ACCESS-KEY\")",
+									"});",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-SIGN',",
+									"    value: sign",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderNo\": \"20231102095622100522\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PppicsHostPort}}/v1/order/refund/list",
+							"host": [
+								"{{PppicsHostPort}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"refund",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "商户列表",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var bodyStr = pm.request.body.raw;",
+									"if(bodyStr == undefined){",
+									"    bodyStr = '';",
+									"}",
+									"var method = pm.request.method;",
+									"var path = pm.request.url.getPathWithQuery();",
+									"var ts = new Date().getTime();",
+									"var sign = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(ts + method + path + bodyStr, postman.getEnvironmentVariable(\"PPPICS-SECRET-KEY\")));",
+									"console.log(bodyStr);",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-TS',",
+									"    value: ts",
+									"});",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-ACCESS-KEY',",
+									"    value: postman.getEnvironmentVariable(\"PPPICS-ACCESS-KEY\")",
+									"});",
+									"",
+									"pm.request.headers.add({",
+									"    key:'PPPICS-SIGN',",
+									"    value: sign",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PppicsHostPort}}/v1/merchant/list",
+							"host": [
+								"{{PppicsHostPort}}"
+							],
+							"path": [
+								"v1",
+								"merchant",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
