@@ -303,7 +303,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"merchantId\": \"1\"\n}",
+							"raw": "{\n    \"merchantId\": \"1\",\n    \"statusList\": [\n        4000,\n        5000\n    ],\n    \"unifiedStartTime\": \"2024-08-13 12:00:00\",\n    \"unifiedEndTime\": \"2024-09-12 12:00:00\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -366,7 +366,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"orderNo\": \"20231102095622100522\"\n}",
+							"raw": "{\n    \"orderNo\": \"20231102095626666566\",\n    \"merchantId\": 1,\n    \"applyStartTime\": \"2024-09-02 11:07:48\",\n    \"applyEndTime\": \"2024-09-10 11:07:48\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -453,6 +453,33 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "测试签名",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"timeStamp\":\"1726029018000\",\n    \"method\":\"GET\",\n    \"path\":\"/v1/merchant/list\",\n    \"body\":\"\",\n    \"secretKey\":\"123456xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PppicsHostPort}}/test/sign",
+					"host": [
+						"{{PppicsHostPort}}"
+					],
+					"path": [
+						"test",
+						"sign"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
