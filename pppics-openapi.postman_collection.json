@@ -240,7 +240,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"themeId\": \"1\",\n    \"machineCode\": \"\"\n}",
+							"raw": "{\n    \"themeId\": \"1\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
